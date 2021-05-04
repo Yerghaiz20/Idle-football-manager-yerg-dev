@@ -9,7 +9,7 @@ class GeneratorUtils {
         let name = Utils.capitalize(firstNames[r.nextInt(firstNames.length)]) + " "
                     + Utils.capitalize(lastNames[r.nextInt(lastNames.length)]);
         let pow = Math.log(11) / Math.log(16);
-        marketValue = (((attack * 100) + (defense * 100) * stamina) * (1 + 3 * fact ** pow * (0.8 + 0.4 * Math.random()));            
+        marketValue = (((attack * 100) + (defense * 100)) * stamina) * (1 + 3 * fact ** pow * (0.8 + 0.4 * Math.random()));            
         return new Player(name, attack, defense, aggressivity, stamina, active, marketValue);
     }
 
