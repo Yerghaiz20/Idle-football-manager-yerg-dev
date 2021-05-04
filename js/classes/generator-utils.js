@@ -1,5 +1,5 @@
 class GeneratorUtils {
-    static generatePlayer(seed, minStat, maxStat, active, marketValue = new Decimal(0)) {
+    static generatePlayer(seed, minStat, maxStat, active) {
         let r = new Random(seed);
         let weight = 0.2 + 0.6 * r.nextDouble();
         let attack = minStat.add((maxStat.sub(minStat)).mul(r.nextDouble())).mul(2 * weight);
