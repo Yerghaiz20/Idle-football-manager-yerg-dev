@@ -1,5 +1,5 @@
 class Player {
-    constructor(name, attack, defense, aggressivity, stamina, active, marketValue = new Decimal(0)) {
+    constructor(name, attack, defense, aggressivity, stamina, active, marketValue) {
         this.name = name;
         this.attack = attack;
         this.defense = defense;
