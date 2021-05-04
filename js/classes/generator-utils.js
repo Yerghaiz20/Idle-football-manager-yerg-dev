@@ -1,5 +1,5 @@
 class GeneratorUtils {
-    static generatePlayer(seed, minStat, maxStat, active, marketValue = new Decimal(0), fact) {
+    static generatePlayer(seed, minStat, maxStat, active, fact) {
         let r = new Random(seed);
         let weight = 0.2 + 0.6 * r.nextDouble();
         let attack = minStat.add((maxStat.sub(minStat)).mul(r.nextDouble())).mul(2 * weight);
@@ -9,7 +9,7 @@ class GeneratorUtils {
         let name = Utils.capitalize(firstNames[r.nextInt(firstNames.length)]) + " "
                     + Utils.capitalize(lastNames[r.nextInt(lastNames.length)]);
         let pow = Math.log(11) / Math.log(16);
-        marketValue = (((attack * 100) + (defense * 100)) * stamina) * (1 + 3 * fact ** pow * (0.8 + 0.4 * Math.random()));            
+        let marketValue = Decimal.max(1e2, (((attack * 1000) + (defense * 1000)) * (stamina / 100)) * (1 + 3 * fact ** pow * (0.8 + 0.4 * Math.random())));            
         return new Player(name, attack, defense, aggressivity, stamina, active, marketValue);
     }
 
