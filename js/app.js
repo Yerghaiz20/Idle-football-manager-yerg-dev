@@ -21,12 +21,12 @@ function setup(){
         return false;
     }
 
-    if(localStorage.getItem("idleSoccerManager") === null){
+//    if(localStorage.getItem("idleSoccerManager") === null){
         initializeGame();
-    }
-    else{
-        functions.loadGame();
-    }
+//    }
+//    else{
+//        functions.loadGame();
+//    }
 
     if(!error.length){
         Vue.nextTick(() => game.init = true);
