@@ -6,6 +6,7 @@ class GeneratorUtils {
         let defense = minStat.add((maxStat.sub(minStat)).mul(r.nextDouble())).mul(2 * (1 - weight));
         let aggressivity = 0.5 + 1.5 * r.nextDouble();
         let stamina = 0.5 + 1.5 * r.nextDouble();
+        let marketValue = Decimal.max((((this.player.attack * 100) + (this.player.defense * 100)) * this.player.stamina) * weight);
         let name = Utils.capitalize(firstNames[r.nextInt(firstNames.length)]) + " "
                     + Utils.capitalize(lastNames[r.nextInt(lastNames.length)]);
         return new Player(name, attack, defense, aggressivity, stamina, active, marketValue);
