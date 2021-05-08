@@ -1,0 +1,18 @@
+0.0.1 Conception
+
+General:
+-- Created a fork of the original project
+
+Gameplay:
+-- Changed the way player costs are calculated to be determined by their stats, including stamina.
+
+Optimization:
+-- Reduced the maximum speed by 80%, but increased the rate that game time passes by 500%.  Realtime, matches should be the same, but it should require far less CPU work.
+
+UI/UX:
+-- Removed the title from the header, and started adding information displays in its place.
+-- Widened the Active Team display a bit so it only takes two rows, and made the Reserve Roster always 'up'
+-- Added displays for each team's ATT and DEF in the Division table.
+-- Added Current Match info to the League Tab, as part of an effort to reclaim some empty screen space.  Match screen will be getting yeeted eventually.
+-- Started condensing stuff in the Settings Tab.
+-- Fixed up the Links section of Settings to credit Vepro for their original work.

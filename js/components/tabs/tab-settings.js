@@ -56,7 +56,7 @@ app.component("tab-settings", {
     },
     template: `<div class="tab-settings">
     <h3 class="big-heading">Settings</h3>
-
+    <label>v0.0.1 "Conception"</label>
     <div class="card flex">
     <team-settings :team="team"></team-settings>
         <div>
