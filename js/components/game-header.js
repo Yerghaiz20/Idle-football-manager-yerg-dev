@@ -23,10 +23,33 @@ app.component("game-header", {
         },
         tvUnlocked(){
             return game.tv.isUnlocked();
+        },
+        money(){
+            return game.money;
+        },
+        totalAttack(){
+            return game.team.getCombinedAttack();
+        },
+        totalDefense(){
+            return game.team.getCombinedDefense();
+        },
+        averageStamina(){
+            return (game.team.getAverageStamina() * 100);
         }
     },
     template: `<header>
-<h1>Idle {{term}} Manager</h1>
+<nav>
+    <ul>
+        <label class="icon-flex"><img src="images/icons/money.png"/>$ {{formatNumber(money)}}</label>
+    </ul>
+</nav>
+<nav>
+    <ul>
+        <label class="icon-flex"><img src="images/icons/strategy/offensive.png"/>{{formatNumber(totalAttack)}}</label>
+        <label class="icon-flex"><img src="images/icons/strategy/defensive.png"/>{{formatNumber(totalDefense)}}</label>
+        <label class="icon-flex"><img src="images/icons/stamina.png"/>{{formatNumber(averageStamina)}}%</label>
+    </ul>
+</nav>
 <nav>
     <ul>
         <li class="icon-flex" @click="changeTab('tab-team')"><team-logo :logo="logo"></team-logo> Team</li>
@@ -42,5 +65,6 @@ app.component("game-header", {
         <li class="icon-flex" @click="changeTab('tab-settings')"><img src="images/icons/settings.png"/> Settings</li>
     </ul>
 </nav>
+
 </header>`
 });

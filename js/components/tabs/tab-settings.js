@@ -55,16 +55,16 @@ app.component("tab-settings", {
         }
     },
     template: `<div class="tab-settings">
-    <h3 class="big-heading">Team Settings</h3>
-    <team-settings :team="team"></team-settings>
-    <h3 class="big-heading">Game Settings</h3>
+    <h3 class="big-heading">Settings</h3>
+
     <div class="card flex">
+    <team-settings :team="team"></team-settings>
         <div>
             Term shown in Game Header<br/>
             <label><input type="radio" name="term" v-model="settings.term" value="Football"/> Football</label>
             <label><input type="radio" name="term" v-model="settings.term" value="Soccer"/> Soccer</label><br/>
         </div>
-        <div>   
+        <div>
             <label>Match Autoplay <input type="checkbox" v-model="settings.match.autoPlay"/></label><br/>
             <label>Min Avg. Stamina required <input type="range" min="0" max="1" step="any" v-model.number="settings.match.minAutoPlayStamina"/></label><br/>
             <label>Refill Team after Match <input type="checkbox" v-model="settings.team.refillPlayers"/></label>
@@ -77,6 +77,8 @@ app.component("tab-settings", {
             <label>Render TV Screens (decreases Performance) <input type="checkbox" v-model="settings.tv.renderCanvas"/></label><br/>
         </div>
     </div>
+    <h3 class="big-heading">Game Settings</h3>
+
     <button @click="restartTutorial()">Restart Tutorial</button><br/>
     <h3 class="big-heading">Save Management</h3>
     <p>Note: The Game does <b>not</b> save if <b>cookies or storage</b> are disabled. Cleaning Utilities might clear Browser Storage.
@@ -92,7 +94,10 @@ app.component("tab-settings", {
         </textarea>
     </div>
     <h3 class="big-heading">Social</h3>
-    <a target="_blank" href="https://discord.gg/75d7Jj5" class="icon-flex"><img alt="" src="images/icons/discord.png"/> Join my Discord Server</a>
-    <a target="_blank" href="https://cook1eegames.feedia.co" class="icon-flex"><img alt="" src="images/icons/website.png"/> Visit my Website</a>
+    <p> This is a mod of the original Idle Footbal Manager, created by Veprogames.  Below is a link to original game, and Vepro's Discord and Website. :) </p>
+    </p>
+    <a target="_blank" href="https://veprogames.github.io/idle-football-manager/" class="icon-flex"><img alt="" src="images/icons/football.png"/> Play the original here</a>
+    <a target="_blank" href="https://discord.gg/75d7Jj5" class="icon-flex"><img alt="" src="images/icons/discord.png"/> Join Vepro's Discord Server</a>
+    <a target="_blank" href="https://cook1eegames.feedia.co" class="icon-flex"><img alt="" src="images/icons/website.png"/> Visit Vepro's Website</a>
 </div>`
 });

@@ -19,6 +19,12 @@ app.component("tab-league", {
         },
         divisionNumber(){
             return game.league.divisions.length - this.division.rank;
+        },
+        currentMatch(){
+            return game.currentMatch;
+        },
+        nextMatch(){
+            return game.nextMatch;
         }
     },
     methods: {
@@ -39,5 +45,7 @@ app.component("tab-league", {
         <button disabled v-else-if="matchRunning">You are already in a Match.</button>
         <button disabled v-else>You need at least 1 Player in your Team to play the next Match!</button>
     </div>
+    <match v-if="currentMatch" :match="currentMatch"></match>
+    <match v-else-if="nextMatch" :match="nextMatch"></match>
 </div>`
 });

@@ -8,7 +8,7 @@ let game = {
     league: null,
     restartedTutorial: false,
     countries: [
-        new Country("Nowhereia", `This is your Starting Point. People here don't even really play Football, and are not interested in it. 
+        new Country("Nowhereia", `This is your Starting Point. People here don't even really play Football, and are not interested in it.
             Teams here aren't very good, a good way for you to get going!`, new CountryFlag(["white"])),
         new Country("Anti-Football Nation", `They do play Football, but they really dislike it. They still play it, for some reason.
             They are better than in Nowhereia, but it won't be a Problem for you.`, new CountryFlag(["white", "skyblue", "blue"])),
@@ -20,7 +20,7 @@ let game = {
     playerMarket: new PlayerMarket(),
     moneyUpgrades:{
         matchSpeed: new MoneyUpgrade(level => Decimal.pow(3, level).mul(10000),
-            level => 300 * (320 / 300) ** level, {
+            level => 60 * (70 / 60) ** level, {
                 maxLevel: 12
             }),
         //-> 9x money per division, ~11x player price per division

@@ -49,15 +49,17 @@ app.component("match", {
         }
     },
     template: `<div class="match">
-<match-view :ballx="match.ballX"></match-view>
+    <div class="speed-controls">
+        <label>Match Speed (x{{timeScale.toFixed(0)}})<br/><input type="range" step="any" v-model="matchTimeScaleLog" @input="setTimeScale()" min="0" :max="maxTimeScaleLog"/></label>
+    </div>
 <div class="stats">
     <p class="time">{{formatTime(match.time)}}<button :disabled="!canPlayNextMatch" v-if="match.time === 0" @click="playNextMatch()">Start</button></p>
     <div class="score">
         <div class="icon-flex">
             <team-logo :logo="match.team1.logo"></team-logo>
             <p>{{match.team1.name}}</p>
-        </div> 
-        <p class="numbers">{{match.score1}} - {{match.score2}}</p> 
+        </div>
+        <p class="numbers">{{match.score1}} - {{match.score2}}</p>
         <div class="icon-flex">
             <p>{{match.team2.name}}</p>
             <team-logo :logo="match.team2.logo"></team-logo>
@@ -72,7 +74,7 @@ app.component("match", {
         </p>
     </div>
     <div>
-    
+
     </div>
     <div>
         <p v-for="g in team2Events">
@@ -98,8 +100,6 @@ app.component("match", {
         </template>
     </window>
 </transition>
-<div class="speed-controls">
-    <label>Match Speed (x{{timeScale.toFixed(0)}})<br/><input type="range" step="any" v-model="matchTimeScaleLog" @input="setTimeScale()" min="0" :max="maxTimeScaleLog"/></label>
-</div>
+
 </div>`
 });

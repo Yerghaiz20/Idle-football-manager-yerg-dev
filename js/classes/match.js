@@ -160,7 +160,7 @@ class Match {
             for(let i = 0; i < Math.min(60, this.timeScale); i++) {
                 dt = Math.min(1 / 30, dt);
                 let tm = Math.max(1, this.timeScale / 60);
-                this.time += dt * tm;
+                this.time += dt * (tm * 5);
 
                 for(let i = 0; i < this.powerMulti.length; i++) {
                     this.powerMulti[i] = 1 + 0.5 * Math.sin(this.time / this.powerMultiFreq[i] * 2 * Math.PI);
@@ -193,7 +193,7 @@ class Match {
                 }
 
                 for(let p of this.getPlayerTeam().getActivePlayingPlayers()){
-                    p.currentStamina = Math.max(0, p.currentStamina - Math.random() * 3e-5 * dt * tm * (1 / p.stamina));
+                    p.currentStamina = Math.max(0, p.currentStamina - Math.random() * 3e-5 * dt * (tm * 5) * (1 / p.stamina));
                 }
 
                 this.ballX += this.ballSpeed * dt;

@@ -18,12 +18,15 @@ app.component("division", {
         },
         selectTeam(team){
             this.$emit("team-selected", team);
-        }
+        },
+        formatNumber: functions.formatNumber
     },
     template: `<table class="division">
 <thead>
     <th>Pos</th>
     <th>Team</th>
+    <th>ATT</th>
+    <th>DEF</th>
     <th>Games</th>
     <th>W</th>
     <th>D</th>
@@ -35,6 +38,8 @@ app.component("division", {
 <tr :class="{promotion: i < promotion, relegation: i > sortedTeams.length - relegation - 1}" v-for="(team, i) in sortedTeams" :key="i">
     <td class="pos">{{i + 1}}</td>
     <td class="icon-flex team" :title="getStatsDisplay(team)"><team-logo :logo="team.logo"></team-logo> <span @click="selectTeam(team)">{{team.name}}</span></td>
+    <td>{{formatNumber(team.getCombinedAttack())}}</td>
+    <td>{{formatNumber(team.getCombinedDefense())}}</td>
     <td>{{team.getTotalGames()}}</td>
     <td>{{team.divisionStats.win}}</td>
     <td>{{team.divisionStats.draw}}</td>
