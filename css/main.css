@@ -269,7 +269,7 @@ p.game-error{
 /*Header*/
 
 header{
-    min-height: 40px;
+    min-height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -618,28 +618,27 @@ main{
 .match .match-view{
     position: absolute;
     bottom: 5rem;
-    width: 100%;
+    width: 50%;
     padding: 1rem;
 }
 
 .match .stats{
-    font-size: 200%;
+    font-size: 100%;
     font-weight: bold;
     text-align: center;
     margin-top: 2rem;
-    margin-right: 10%;
-    margin-left: 10%;
+
 
 }
 
 .match .stats .score{
     display: flex;
-    align-items: center;
-    margin: 2rem;
+    width: 125%;
+    
 }
 
 .match .stats .score > p, .match .stats .score > div{
-    width: 33.3%;
+    width: 75%;
 }
 
 .match .stats .score > div:last-child{
@@ -652,16 +651,16 @@ main{
 }
 
 .match .stats .score .numbers, .match .stats .time{
-    font-size: 150%;
+    font-size: 100%;
 }
 
 .match .stats .time{
-    font-size: 200%;
+    font-size: 100%;
     letter-spacing: 0.1rem;
 }
 
 .match .events{
-    font-size: 120%;
+    font-size: 80%;
     display: flex;
 }
 
@@ -685,27 +684,23 @@ main{
 }
 
 .match .speed-controls{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+
 }
 
 .match .speed-controls button{
-    font-size: 150%;
+    font-size: 25%;
     font-weight: bold;
     margin: 0 1rem;
 }
 
 .match .speed-controls label{
-    min-width: 75vw;
-    margin-right: 12.5%;
-    justify-content: flex-start;
-    font-size: 150%;
+    min-width: 50vw;
+    font-size: 50%;
     font-weight: bold;
 }
 
 .match .speed-controls label input{
-    width: 100%;
+    width:50%;
 }
 
 .match .speed-controls button img{

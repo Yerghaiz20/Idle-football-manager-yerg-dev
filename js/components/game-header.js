@@ -35,6 +35,12 @@ app.component("game-header", {
         },
         averageStamina(){
             return (game.team.getAverageStamina() * 100);
+        },
+        currentMatch(){
+            return game.currentMatch;
+        },
+        nextMatch(){
+            return game.nextMatch;
         }
     },
     template: `<header>
@@ -50,6 +56,16 @@ app.component("game-header", {
         <label class="icon-flex"><img src="images/icons/stamina.png"/>{{formatNumber(averageStamina)}}%</label>
     </ul>
 </nav>
+<ul>
+
+</ul>
+<nav>
+    <ul>
+        <label><match2 v-if="currentMatch" :match="currentMatch"></match2></label>
+        <label><match2 v-else-if="nextMatch" :match="nextMatch"></match2></label>
+    </ul>
+</nav>
+
 <nav>
     <ul>
         <li class="icon-flex" @click="changeTab('tab-team')"><team-logo :logo="logo"></team-logo> Team</li>

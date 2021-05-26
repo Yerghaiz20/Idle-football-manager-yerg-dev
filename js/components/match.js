@@ -1,5 +1,5 @@
 app.component("match", {
-    props: ["match"],
+    props: ["match", "match2"],
     data(){
         return {
             matchTimeScaleLog: 0,
@@ -49,23 +49,20 @@ app.component("match", {
         }
     },
     template: `<div class="match">
-    <div class="speed-controls">
-        <label>Match Speed (x{{timeScale.toFixed(0)}})<br/><input type="range" step="any" v-model="matchTimeScaleLog" @input="setTimeScale()" min="0" :max="maxTimeScaleLog"/></label>
-    </div>
-<div class="stats">
-    <p class="time">{{formatTime(match.time)}}<button :disabled="!canPlayNextMatch" v-if="match.time === 0" @click="playNextMatch()">Start</button></p>
-    <div class="score">
-        <div class="icon-flex">
-            <team-logo :logo="match.team1.logo"></team-logo>
-            <p>{{match.team1.name}}</p>
-        </div>
-        <p class="numbers">{{match.score1}} - {{match.score2}}</p>
-        <div class="icon-flex">
-            <p>{{match.team2.name}}</p>
-            <team-logo :logo="match.team2.logo"></team-logo>
+    <div class="stats">
+        <p class="time">{{formatTime(match.time)}}<button :disabled="!canPlayNextMatch" v-if="match.time === 0" @click="playNextMatch()">Start</button></p>
+        <div class="score">
+            <div class="icon-flex">
+                <team-logo :logo="match.team1.logo"></team-logo>
+                <p>{{match.team1.name}}</p>
+            </div>
+            <p class="numbers">{{match.score1}} - {{match.score2}}</p>
+            <div class="icon-flex">
+                <p>{{match.team2.name}}</p>
+                <team-logo :logo="match.team2.logo"></team-logo>
+            </div>
         </div>
     </div>
-</div>
 <div class="events">
     <div>
         <p v-for="g in team1Events">{{g.name}} {{g.minute}}'
@@ -101,5 +98,27 @@ app.component("match", {
     </window>
 </transition>
 
+</div>`,
+
+    template: `<div class="match2">
+    <div class="stats">
+        <div class="score">
+            <div class="icon-flex">
+                <team-logo :logo="match.team1.logo"></team-logo>
+                <label>{{match.team1.name}}</label>
+            </div>
+            <p class="numbers">{{match.score1}}</p>
+            <div>
+
+            <p class="time">{{formatTime(match.time)}}<br/><label class="speed-controls">Match Speed (x{{timeScale.toFixed(0)}})<br/><input type="range" step="any" v-model="matchTimeScaleLog" @input="setTimeScale()" min="0" :max="maxTimeScaleLog"/></label><button :disabled="!canPlayNextMatch" v-if="match.time === 0" @click="playNextMatch()">Start</button></p>
+
+            </div>
+            <p class="numbers">{{match.score2}}</p>
+            <nav class="icon-flex">
+                <p>{{match.team2.name}}</p>
+                <team-logo :logo="match.team2.logo"></team-logo>
+            </nav>
+        </div>
+    </div>
 </div>`
 });
